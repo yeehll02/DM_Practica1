@@ -10,10 +10,16 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // Endpoint hola mundo
-Route::get( 'holamundo', function () {
+Route::get( '/holamundo', function () {
     return 'Hola Mundo --  Yesica Andrea Henao Ceballos';
 });
 
+//Endpoint para el registro y el ingreso
 Route::post('/signup', [AuthController::class, 'register']);
 Route::post('/signin', [AuthController::class, 'login']);
-Route::Resource('/mascotas', MascotaController::class) -> middleware('auth:sanctum'); 
+
+//Endpoint para listar todos los items paginados
+Route::get('/mascotas', [MascotaController::class, 'index']);
+
+//Endpoints de la entidad Mascota, para los metodos CRUD.
+Route::Resource('/mascotas', MascotaController::class) ->except(['index'])->middleware('auth:sanctum'); 

@@ -11,6 +11,7 @@ class MascotaController extends Controller
     /**
      * Display a listing of the resource. Obtener todas las entidades
      */
+    // Permite obtener todos los registros
     public function index()
     {
         // Paginación
@@ -24,6 +25,7 @@ class MascotaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // Permite crear un nuevo registro
     public function store(Request $request)
     {
         $request->validate([
@@ -46,6 +48,7 @@ class MascotaController extends Controller
     /**
      * Display the specified resource.
      */
+    // Permite obtener un registro en especifico
     public function show($id)
     {
         $mascota = Mascota::findOrFail($id);
@@ -56,6 +59,7 @@ class MascotaController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    // Permite actualizar un registro
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -79,6 +83,7 @@ class MascotaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    // Permite eliminar un registro
     public function destroy( $id)
     {
         $mascota = Mascota::findOrFail($id);
